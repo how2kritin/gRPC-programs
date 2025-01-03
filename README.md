@@ -10,7 +10,7 @@ Note that comments to indicate what each block of code does have been provided i
 
 ## Pre-Requisites
 1. protobuf
-2. gRPC for python and C++
+2. gRPC for python and C++ (you can refer to [this handy guide](https://grpc.io/blog/installation/))
 3. redis
 4. python
 5. A package manager for python like `pip` or `conda`.
@@ -24,7 +24,7 @@ Once you have all of these installed, create a directory named `build` in the ro
 ## K Nearest Neighbours
 
 ### Instructions to run
-1. Follow the instructions mentioned at [this README](KNN/README.md).
+1. Follow the instructions mentioned in [this README](KNN/README.md).
 
 ### Source Code: 
 * [Client](KNN/client/client.cpp)
@@ -54,7 +54,7 @@ Created a distributed, asynchronous ride-sharing platform using gRPC, with suppo
 
 ### Instructions to run
 1. Create a CA certificate (you can follow [this guide](https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/)) and name it `ca.crt`. Put the `ca.crt` as well as its key named `ca.key` in the [certificate folder](MyUber/certificate).
-2. Follow the instructions mentioned at [this README](MyUber/README.md).
+2. Follow the instructions mentioned in [this README](MyUber/README.md).
 
 ### Source Code: 
 * [Client](MyUber/client) 
