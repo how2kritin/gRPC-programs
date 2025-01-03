@@ -23,10 +23,9 @@ Simply use a singular server and singular client, and compare the output obtaine
 2. Number of servers to use will be passed as the 2nd command line argument to the client, and port number of each server as 3rd, 4th, ... command line args.
 3. Invalid command line args will not be passed to the server and/or client.
 4. The dataset that I've included as an example is of 2D KNN. However, any arbitrary dimension KNN is possible with this code, as it is general enough.
-5. Dataset will be preloaded from `dataset.csv` file in the `dataset` folder.
-6. Client is responsible for sending portion of dataset to be computed on to the server, and server is responsible for performing the necessary computation.
-7. Client asynchronously issues calls to each of the servers, and server asynchronously responds to each client request.
-8. Finally, client is responsible for aggregating those results and getting the correct K nearest neighbours.
-9. The client and server do not crash in between, and client always sends request only to a server that is alive.
+5. Client is responsible for sending portion of dataset to be computed on to the server, and server is responsible for performing the necessary computation.
+6. Client asynchronously issues calls to each of the servers, and server asynchronously responds to each client request.
+7. Finally, client is responsible for aggregating those results and getting the correct K nearest neighbours.
+8. The client and server do not crash in between, and client always sends request only to a server that is alive.
 
 ---
