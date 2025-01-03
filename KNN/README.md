@@ -12,12 +12,6 @@ x1 x2 x3 ... xl
 
 ---
 
-## Instructions to check the program
-
-Simply use a singular server and singular client, and compare the output obtained from this case with the cases with multiple servers and/or clients.
-
----
-
 ## Assumptions
 1. Port of server will be passed as the 2nd command line argument to the server.
 2. Number of servers to use will be passed as the 2nd command line argument to the client, and port number of each server as 3rd, 4th, ... command line args.
