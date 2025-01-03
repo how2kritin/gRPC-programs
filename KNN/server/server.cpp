@@ -5,8 +5,8 @@
 
 #include <bits/stdc++.h>
 #include <grpcpp/grpcpp.h>
-#include "32/Q2/protofiles/q2.grpc.pb.h"
-#include "32/Q2/protofiles/q2.pb.h"
+#include "KNN/protofiles/q2.grpc.pb.h"
+#include "KNN/protofiles/q2.pb.h"
 
 float calcEuclideanDistance(const std::vector<float>& p1, const std::vector<float>& p2) {
     float sum = 0;

@@ -1,0 +1,7 @@
+asgiref==3.8.1
+Booktype==1.5
+Django==5.1.4
+redis==5.2.1
+setuptools==75.6.0
+simplejson==3.19.3
+sqlparse==0.5.3

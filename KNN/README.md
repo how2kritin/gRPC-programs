@@ -1,8 +1,7 @@
 ## Instructions to run
 
-Run `cmake .` in the folder with CMakeLists.txt, and then run `make` in the same folder as the MakeFile will be created there.  
-
-Now, you can run `./Q2_server <port_number>` to run the server, and `./Q2_client <num_servers> <server_port_1> <server_port_2> ...` to run the client.  
+1. Navigate to `build/`. 
+2. Run `./KNN_server <port_number>` to run the server, and `./KNN_client <num_servers> <server_port_1> <server_port_2> ...` to run the client.  
 
 **Input format to client:**
 ```

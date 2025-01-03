@@ -2,50 +2,59 @@
 
 This repository contains a subset of problems from Assignment-4 of the Distributed Systems course, taken in Monsoon'24 semester at IIIT Hyderabad. These algorithms have been implemented in a distributed setting using gRPC, in C++ and Python.
 
-Note that comments containing reference material and implementation ideas, as well as comments to indicate what each block of code does, have been provided in the source code for each of these programs.
-1. [Prefix Sum](#prefix-sum)
-2. [Matrix Inversion](#matrix-inversion)
-3. [Matrix Chain Multiplication](#matrix-chain-multiplication)
-
----
-
-## Pre-requisites
-
-```mpic++```
-Kindly ensure that `mpich` and `build-essential` packages are installed, if on a Linux distribution.
+Note that comments to indicate what each block of code does have been provided in the source code for each of these programs.
+1. [K Nearest Neighbours](#k-nearest-neighbours)
+2. [MyUber](#myuber)
 
 ---
 
 ## Pre-Requisites
+1. protobuf
+2. gRPC for python and C++
+3. redis
+4. python
+5. A package manager for python like `pip` or `conda`.
+6. Python libraries mentioned in `requirements.txt`.
+7. CMake
 
+Once you have all of these installed, create a directory named `build` in the root directory, and enter the directory using `cd build`. Now, run `cmake ..`, followed by `make` to generate the executables.
 
 ---
 
 ## K Nearest Neighbours
-Please find the source code for the client at [client.cpp](KNN/client/client.cpp).
-
-For `N=1000000` randomly generated floating point numbers.
 
 ### Instructions to run
-Run `./Q2_server <port_number>` to run the server, and `./Q2_client <num_servers> <server_port_1> <server_port_2> ...` to run the client.
+1. Follow the instructions mentioned at [this README](KNN/README.md).
+
+### Source Code: 
+* [Client](KNN/client/client.cpp)
+* [Server](KNN/server/server.cpp)
+* [Protofile](KNN/protofiles/q2.proto)
 
 ### Input Format
-* The first line contains `N`, i.e., the number of elements there are.
-* The second line contains `N` space-separated floating point numbers.
+* The first entry in the first line is `K`, which specifies the number of nearest neighbours to consider.
+* The second entry in the first line is 'l', which specifies the dimension of the provided point. Note that this has to be the same as the dimensions of each datapoint present in the dataset.
+* The second line contains `l` space separated floating point numbers which represent the point for which we are supposed to find `K` nearest neighbours.
 
 ### Output Format
-* A single line containing `N` space-separated floating point numbers, where the `i`th element is the prefix sum of the first `i` elements.
+* `K` points, representing the top K nearest neighbours in ascending order of distance.
 
 For details regarding the implementation and performance analysis, please refer to [the report](MyUber/Report.pdf).
 
 ---
 
 ## MyUber
-Created a ride-sharing distributed platform using gRPC, with support for rider and driver clients and servers to facilitate communication between the clients.
+Created a distributed, asynchronous ride-sharing platform using gRPC, with support for rider and driver clients and servers to facilitate communication between the clients.  
+
+### Salient Features
+* SSL/TLS Authentication for both the client and the server (Mutual TLS).
+* Interceptors for authorization, logging and other miscellaneous data.
+* Timeout and rejection handling for drivers and riders.
+* Client-side load balancing across servers.
 
 ### Instructions to run
 1. Create a CA certificate (you can follow [this guide](https://arminreiter.com/2022/01/create-your-own-certificate-authority-ca-using-openssl/)) and name it `ca.crt`. Put the `ca.crt` as well as its key named `ca.key` in the [certificate folder](MyUber/certificate).
-2. Follow the instructions mentioned at [README.md](MyUber/README.md)
+2. Follow the instructions mentioned at [this README](MyUber/README.md).
 
 ### Source Code: 
 * [Client](MyUber/client) 

@@ -1,20 +1,10 @@
 ## Instructions to run
 
-Run `cmake .` in the folder with CMakeLists.txt, and then run `make` in the same folder as the MakeFile will be created there.
-
-Open a terminal session in `/MyUber/server`, and run `python -m grpc_tools.protoc -I../protofiles/ --python_out=. --pyi_out=. --grpc_python_out=. q3.proto`.
-
-Now, to run the server, run `python server.py <server_port>` in the same directory.
-
-Navigate to `/cmake-build-debug/` and run `./Q3_client <client_role> <load_balancing_policy> <num_servers> <server_port_1> <server_port_2> ...` to run the client.
+1. Open a terminal session in `/MyUber/server`, and run `python -m grpc_tools.protoc -I../protofiles/ --python_out=. --pyi_out=. --grpc_python_out=. q3.proto`.
+2. To run the server, run `python server.py <server_port>` in the same directory.
+3. Navigate to `build/` and run `./MyUber_client <client_role> <load_balancing_policy> <num_servers> <server_port_1> <server_port_2> ...` to run the client.
 
 **_client\_role_ MUST NECESSARILY be one of _rider_ or _driver_, and _load\_balancing\_policy_ MUST NECESSARILY be one of _pick_first_ or _round_robin_.**
-
----
-
-## Instructions to check the program
-
-Just run the program and manually validate the outputs, see if it satisfies all the specifications and assumptions mentioned.
 
 ---
 

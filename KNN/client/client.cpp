@@ -6,8 +6,8 @@
 #include <bits/stdc++.h>
 #include <grpcpp/grpcpp.h>
 #include <grpcpp/alarm.h>
-#include "32/Q2/protofiles/q2.grpc.pb.h"
-#include "32/Q2/protofiles/q2.pb.h"
+#include "KNN/protofiles/q2.grpc.pb.h"
+#include "KNN/protofiles/q2.pb.h"
 
 std::vector<KNN::Point> readDataset(const std::string& filename) {
     std::vector<KNN::Point> dataset;
@@ -75,7 +75,9 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    std::string dataset_filename = "../32/Q2/dataset/dataset_1M.csv";
+    std::string dataset_filename;
+    std::cout << "Please provide the path to the dataset that you'd like to use: ";
+    std::cin >> dataset_filename;
 
     int numServers = std::stoi(argv[1]);
     std::vector<std::string> server_ips(numServers);
