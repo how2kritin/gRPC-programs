@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+package MyUber;
+
+message RideRequest {
+  string rider_name = 1;
+  string source = 2;
+  string destination = 3;
+}
+
+message RideResponse {
+  int32 ride_id = 1;
+  enum Status {
+    SEARCHING_FOR_DRIVER = 0;
+    NO_DRIVERS_AVAILABLE = 1;
+  };
+  Status status = 2;
+}
+
+message RideStatusRequest {
+  int32 ride_id = 1;
+}
+
+message RideStatusResponse {
+  string status = 1;
+  string driver_name = 2;
+}
+
+message GetRideRequest {
+  int32 ride_id = 1;
+  string driver_name = 2;
+  enum Request {
+    ACCEPTED = 0;
+    REJECTED = 1;
+  };
+  Request request = 3;
+}
+
+message RespondToRideRequest {
+  int32 ride_id = 1;
+  string source = 2;
+  string destination = 3;
+  enum Status {
+    AVAILABLE = 0;
+    ACCEPTED = 1;
+    TIMED_OUT = 2;
+  }
+  Status status = 4;
+}
+
+message RideCompletionRequest {
+  int32 ride_id = 1;
+}
+
+message RideCompletionResponse {
+  int32 ride_id = 1;
+}
+
+service RiderServices {
+  rpc RequestRide(RideRequest) returns (RideResponse) {}
+  rpc GetRideStatus(RideStatusRequest) returns (RideStatusResponse) {}
+}
+
+service DriverServices {
+  rpc SubscribeToRideRequests(stream GetRideRequest) returns (stream RespondToRideRequest) {}
+  rpc CompleteRide(RideCompletionRequest) returns (RideCompletionResponse) {}
+}

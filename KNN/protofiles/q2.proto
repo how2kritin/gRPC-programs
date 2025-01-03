@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package KNN;
+
+message KNNRequest {
+    int32 k = 1;
+    Point query_point = 2;
+    repeated Point data_points = 3;
+}
+
+message Point {
+    repeated float coord = 1;
+}
+
+message Neighbour {
+    Point point = 1;
+    float distance = 2;
+}
+
+message KNNResponse {
+    repeated Neighbour neighbour_points = 1;
+}
+
+service KNNPerformerService {
+    rpc FindKNearestNeighbors(KNNRequest) returns (KNNResponse) {}
+}
